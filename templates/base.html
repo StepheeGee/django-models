@@ -1,0 +1,84 @@
+<!-- templates/base.html -->
+
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Snack Tracker{% endblock %}</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;  /* Light gray background */
+            color: #1f2937;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #c5cae9;  
+            color: #AA6C39;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #673ab7;  /* Royal Purple */
+            color: #ffffff;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            color: #ffffff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #512da8;  /* Darker shade of Royal Purple on hover */
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: #ECC5C0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        footer {
+          background-color: #673ab7; 
+          color: #ffffff;
+          padding: 1rem;
+          text-align: center;
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <h1 class="text-3xl">Welcome to Snack Tracker</h1>
+    </header>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'snack_list' %}">Snack List</a>
+        <a href="{% url 'snack_detail' pk=1 %}">Snack Detail</a>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        &copy; 2024 Snack Tracker. All rights reserved.
+    </footer>
+</body>
+</html>

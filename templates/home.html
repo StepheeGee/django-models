@@ -1,0 +1,19 @@
+<!-- templates/home.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Welcome to Snack Tracker</h1>
+  <p>Explore our delicious snacks and keep track of your favorites!</p>
+
+  <h2>Featured Snacks</h2>
+  {% for snack in snacks %}
+    <div>
+      <h3><a href="{% url 'snack_detail' pk=snack.pk %}" class="text-periwinkle hover:underline hover:text-maroon">{{ snack.name }}</a></h3>
+      <p>{{ snack.description }}</p>
+      <p>Purchased by: {{ snack.purchaser.username }}</p>
+      <p>Rating: {{ snack.rating }}</p>
+   
+    </div>
+  {% endfor %}
+{% endblock content %}
