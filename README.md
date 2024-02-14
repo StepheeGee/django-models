@@ -2,6 +2,8 @@
 
 Lab 27 - This project is a Snack Tracker application that allows users to keep track of various snacks, their details, and purchasers.
 
+2.13.24
+
 ## Author
 
 **Stephanie G. Johnson**
